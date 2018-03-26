@@ -2,6 +2,9 @@
 //  ViewController.swift
 //  tableView_demo
 //          hej
+
+
+
 //  Created by Henrik on 2018-03-26.
 //  Copyright © 2018 Henrik. All rights reserved.
 //
@@ -12,7 +15,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        print("hello")
     }
 
     override func didReceiveMemoryWarning() {
