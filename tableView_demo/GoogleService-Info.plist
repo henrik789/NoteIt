@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>495163346110-lblbqdo7h13thdar3msldbl3qju03mc6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.495163346110-lblbqdo7h13thdar3msldbl3qju03mc6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCr_xkpX6uzDGL0ahK59C_qm8A76rbprVo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>495163346110</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>se.nackademin.ma17.henriklarsson.NoteIt</string>
+	<key>PROJECT_ID</key>
+	<string>noteit-843d8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>noteit-843d8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:495163346110:ios:2e3b1d080fc7f3ba</string>
+	<key>DATABASE_URL</key>
+	<string>https://noteit-843d8.firebaseio.com</string>
+</dict>
+</plist>
