@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		7A1787E066B838F08182F90A /* Pods_tableView_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B2DD151E8B34A5B0FE6611E /* Pods_tableView_demo.framework */; };
 		8BDB4D19BB8F75C7E5E2DFBF /* Pods_tableView_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 261E2C8F5AA70C7D08687FB5 /* Pods_tableView_demoTests.framework */; };
+		AF65EC3A206CCEFF003E9EB6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF65EC39206CCEFF003E9EB6 /* RegisterViewController.swift */; };
 		AFFB0110206A294C002EF576 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFFB010F206A294C002EF576 /* GoogleService-Info.plist */; };
 		AFFB0112206A2BEF002EF576 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB0111206A2BEF002EF576 /* Notes.swift */; };
 		AFFB2CE9206916DE00465814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB2CE8206916DE00465814 /* AppDelegate.swift */; };
-		AFFB2CEB206916DE00465814 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB2CEA206916DE00465814 /* ViewController.swift */; };
+		AFFB2CEB206916DE00465814 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB2CEA206916DE00465814 /* NotesViewController.swift */; };
 		AFFB2CEE206916DE00465814 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFFB2CEC206916DE00465814 /* Main.storyboard */; };
 		AFFB2CF0206916DE00465814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFFB2CEF206916DE00465814 /* Assets.xcassets */; };
 		AFFB2CF3206916DE00465814 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFFB2CF1206916DE00465814 /* LaunchScreen.storyboard */; };
@@ -35,11 +36,12 @@
 		56B97F4CB51D3504997F84F3 /* Pods-tableView_demoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tableView_demoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tableView_demoTests/Pods-tableView_demoTests.release.xcconfig"; sourceTree = "<group>"; };
 		831C47837816DCEE399DBC00 /* Pods-tableView_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tableView_demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-tableView_demo/Pods-tableView_demo.release.xcconfig"; sourceTree = "<group>"; };
 		889819C291D5E186F67BF578 /* Pods-tableView_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tableView_demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tableView_demo/Pods-tableView_demo.debug.xcconfig"; sourceTree = "<group>"; };
+		AF65EC39206CCEFF003E9EB6 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		AFFB010F206A294C002EF576 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AFFB0111206A2BEF002EF576 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		AFFB2CE5206916DE00465814 /* tableView_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tableView_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFFB2CE8206916DE00465814 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AFFB2CEA206916DE00465814 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AFFB2CEA206916DE00465814 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		AFFB2CED206916DE00465814 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AFFB2CEF206916DE00465814 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFFB2CF2206916DE00465814 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,6 +81,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AFFB0113206A364F002EF576 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AFFB0111206A2BEF002EF576 /* Notes.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AFFB0114206A3661002EF576 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AFFB2CE8206916DE00465814 /* AppDelegate.swift */,
+				AFFB2CEA206916DE00465814 /* NotesViewController.swift */,
+				AF65EC39206CCEFF003E9EB6 /* RegisterViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AFFB0115206A366B002EF576 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AFFB2CEC206916DE00465814 /* Main.storyboard */,
+				AFFB2CF1206916DE00465814 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		AFFB2CDC206916DE00465814 = {
 			isa = PBXGroup;
 			children = (
@@ -102,14 +131,12 @@
 		AFFB2CE7206916DE00465814 /* tableView_demo */ = {
 			isa = PBXGroup;
 			children = (
-				AFFB2CE8206916DE00465814 /* AppDelegate.swift */,
-				AFFB2CEA206916DE00465814 /* ViewController.swift */,
-				AFFB2CEC206916DE00465814 /* Main.storyboard */,
+				AFFB0115206A366B002EF576 /* View */,
+				AFFB0114206A3661002EF576 /* Controller */,
+				AFFB0113206A364F002EF576 /* Model */,
 				AFFB2CEF206916DE00465814 /* Assets.xcassets */,
-				AFFB2CF1206916DE00465814 /* LaunchScreen.storyboard */,
 				AFFB2CF4206916DE00465814 /* Info.plist */,
 				AFFB010F206A294C002EF576 /* GoogleService-Info.plist */,
-				AFFB0111206A2BEF002EF576 /* Notes.swift */,
 			);
 			path = tableView_demo;
 			sourceTree = "<group>";
@@ -262,12 +289,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-tableView_demo/Pods-tableView_demo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,8 +381,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFFB2CEB206916DE00465814 /* ViewController.swift in Sources */,
+				AFFB2CEB206916DE00465814 /* NotesViewController.swift in Sources */,
 				AFFB2CE9206916DE00465814 /* AppDelegate.swift in Sources */,
+				AF65EC3A206CCEFF003E9EB6 /* RegisterViewController.swift in Sources */,
 				AFFB0112206A2BEF002EF576 /* Notes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
