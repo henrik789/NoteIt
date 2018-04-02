@@ -1,6 +1,7 @@
 //
 //  ViewController.swift
 //  Note it!
+//  Credits    https://www.freepik.com/free-vector/abstract-design-background_1366169.htm"
 //  Created by Henrik on 2018-03-26.
 //  Copyright © 2018 Henrik. All rights reserved.
 //

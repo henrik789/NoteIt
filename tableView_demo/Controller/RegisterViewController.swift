@@ -18,10 +18,15 @@ class RegisterViewController: UIViewController {
    
     @IBOutlet var emailTextfield: UITextField!
     @IBOutlet var passwordTextfield: UITextField!
+    @IBOutlet weak var saveDefaultSwitch: UISwitch!
+   
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+   
+            print("\(saveDefaultSwitch.isOn)")
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,5 +63,12 @@ class RegisterViewController: UIViewController {
         }
         
     }
+    
+    
+    @IBAction func switchActionChanged(_ sender: Any) {
+             print("switch is: \(saveDefaultSwitch.isOn)")
+    }
+    
+    
     
 }
