@@ -27,11 +27,11 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         self.noteTextField.isEnabled = false
         
-        for index in 0..<noteContent.count {
-            notebook.addEntry(entry: NoteEntry(date: Date(), contents: noteContent[index]))
-        }
-//        writeToFirebase()
-//        retrieveMessages()
+        //        for index in 0..<noteContent.count {
+        //            notebook.addEntry(entry: NoteEntry(date: Date(), contents: noteContent[index]))
+        //        }
+        writeToFirebase()
+        retrieveMessages()
         
         ref = Database.database().reference()
         
@@ -44,7 +44,7 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
     func writeToFirebase(){
         
         let notesDB = Database.database().reference().child("Messages")
-        let note = NoteEntry(date: Date(), contents: "heja")
+        let note = NoteEntry(date: Date(), contents: noteTextField.text!)
         notesDB.childByAutoId().setValue(note.toAnyObject()){
             (error, reference) in
             if error != nil{
@@ -64,8 +64,11 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
             (snapshot) in
             
             let entry = NoteEntry.init(snapshot: snapshot)
+            self.notebook.addEntry(entry: entry)
+            self.noteTableView.reloadData()
+            
             print("ny snapshot: \(entry)")
-            let snapshotValue = snapshot.value as! Dictionary<String, String>
+            //let snapshotValue = snapshot.value as! Dictionary<String, String>
             //            let text = snapshotValue["contents"]!
             //            let date = snapshotValue["date"]!
             print("tar emot note från firebase")
@@ -81,13 +84,12 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func editButton(_ sender: Any) {
     }
     
-//    @IBAction func composeButton(_ sender: Any) {
-//        print("Skriv")
-//        self.noteTextField.isEnabled = true
-//        let newNote = NoteEntry(date: entryDate, contents: noteTextField.text!)
-//        notebook.addEntry(entry: newNote)
-//        noteTableView.reloadData()
-//    }
+    @IBAction func composeButton(_ sender: Any) {
+        self.noteTextField.isEnabled = true
+        let newNote = NoteEntry(date: Date(), contents: "Hej")
+        notebook.addEntry(entry: newNote)
+        noteTableView.reloadData()
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -96,8 +98,7 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = noteTableView.dequeueReusableCell(withIdentifier: "notesCell")
-        let entry = notebook.entry(index: indexPath.row)
-        print("hello!!")
+        _ = notebook.entry(index: indexPath.row)
         cell?.textLabel?.text = notebook.entry(index: indexPath.row)?.contents
         print(notebook.entry(index: indexPath.row)?.contents as Any)
         if let dateLabel = cell?.detailTextLabel
@@ -112,7 +113,7 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
         return true
     }
     
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         noteTableView.cellForRow(at: indexPath)?.textLabel?.numberOfLines = 0
         noteTableView.reloadData()
