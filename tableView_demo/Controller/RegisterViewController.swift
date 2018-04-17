@@ -18,9 +18,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet var passwordTextfield: UITextField!
     @IBOutlet weak var saveDefaultSwitch: UISwitch!
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let email = UserDefaults.standard.string(forKey: "email")
@@ -34,14 +31,6 @@ class RegisterViewController: UIViewController {
         // logInPressed med email och password
             logIn(email: email!, password: password!)
         }
-//        else{
-//            let email = emailTextfield.text
-//            let password = passwordTextfield.text
-////            UserDefaults.standard.set(email, forKey: "email")
-////            UserDefaults.standard.set(password, forKey: "password")
-//            print("hallåååå!: \(email, password)")
-//        }
-//            print("\(saveDefaultSwitch.isOn)")
     }
     
     override func didReceiveMemoryWarning() {

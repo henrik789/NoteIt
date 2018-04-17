@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Avenir.ttc">
-            <string>Avenir-HeavyOblique</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -24,86 +18,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6726" translatesAutoresizingMaskIntoConstraints="NO" id="MQ3-ZP-CPr">
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="6726" translatesAutoresizingMaskIntoConstraints="NO" id="MQ3-ZP-CPr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgp-FB-EpD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="106" id="Dl1-BB-B6Q"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="41"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wlb-Vp-cHP">
-                                <rect key="frame" x="0.0" y="114" width="375" height="106"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="106" id="F5Y-z1-du9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="41"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNQ-0h-sRc">
-                                <rect key="frame" x="0.0" y="228" width="375" height="106"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="106" id="mMh-qz-Cix"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="41"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9L-OM-5Nl">
-                                <rect key="frame" x="0.0" y="342" width="375" height="106"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="106" id="kxT-qb-IRK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="41"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sie-sc-Avl">
-                                <rect key="frame" x="0.0" y="456" width="375" height="106"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="106" id="d5L-em-oir"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="41"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcJ-Jc-KfX">
-                                <rect key="frame" x="0.0" y="570" width="375" height="106"/>
-                                <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="41"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rC8-ZI-37j">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgp-FB-EpD">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="41"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oP9-7W-zC9">
+                                        <rect key="frame" x="0.0" y="95.5" width="375" height="95"/>
+                                        <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="41"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nL-gG-GX6">
+                                        <rect key="frame" x="0.0" y="190.5" width="375" height="95.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="41"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pms-8g-F9j">
+                                        <rect key="frame" x="0.0" y="286" width="375" height="95"/>
+                                        <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="41"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9wb-dv-mr5">
+                                        <rect key="frame" x="0.0" y="381" width="375" height="95.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="41"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olv-0m-mTo">
+                                        <rect key="frame" x="0.0" y="476.5" width="375" height="95"/>
+                                        <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="41"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gln-lU-vHD">
+                                        <rect key="frame" x="0.0" y="571.5" width="375" height="95.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-HeavyOblique" family="Avenir" pointSize="41"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="M9L-OM-5Nl" firstAttribute="leading" secondItem="sie-sc-Avl" secondAttribute="leading" id="0Gl-xY-sGW"/>
-                            <constraint firstItem="vNQ-0h-sRc" firstAttribute="leading" secondItem="M9L-OM-5Nl" secondAttribute="leading" id="4Vb-S0-nCC"/>
-                            <constraint firstItem="Wlb-Vp-cHP" firstAttribute="trailing" secondItem="vNQ-0h-sRc" secondAttribute="trailing" id="AJV-du-IUz"/>
-                            <constraint firstItem="mgp-FB-EpD" firstAttribute="leading" secondItem="Wlb-Vp-cHP" secondAttribute="leading" id="Ics-hk-QFe"/>
-                            <constraint firstItem="mgp-FB-EpD" firstAttribute="top" secondItem="MQ3-ZP-CPr" secondAttribute="top" id="NgW-b8-c6d"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="LcJ-Jc-KfX" secondAttribute="bottom" constant="-9" id="Qbh-gP-qp2"/>
-                            <constraint firstItem="mgp-FB-EpD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="SnP-XO-a6q"/>
-                            <constraint firstItem="MQ3-ZP-CPr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="VEd-1m-NIv"/>
-                            <constraint firstItem="M9L-OM-5Nl" firstAttribute="top" secondItem="vNQ-0h-sRc" secondAttribute="bottom" constant="8" symbolic="YES" id="Vaf-hq-U0l"/>
-                            <constraint firstItem="LcJ-Jc-KfX" firstAttribute="top" secondItem="sie-sc-Avl" secondAttribute="bottom" constant="8" symbolic="YES" id="Y7j-Y9-pso"/>
-                            <constraint firstItem="mgp-FB-EpD" firstAttribute="leading" secondItem="MQ3-ZP-CPr" secondAttribute="leading" id="ZJo-k8-BKB"/>
-                            <constraint firstItem="mgp-FB-EpD" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="amo-ox-DkG"/>
-                            <constraint firstItem="Wlb-Vp-cHP" firstAttribute="leading" secondItem="vNQ-0h-sRc" secondAttribute="leading" id="c1t-IL-tXn"/>
-                            <constraint firstItem="sie-sc-Avl" firstAttribute="leading" secondItem="LcJ-Jc-KfX" secondAttribute="leading" id="duf-fv-5WO"/>
-                            <constraint firstItem="sie-sc-Avl" firstAttribute="trailing" secondItem="LcJ-Jc-KfX" secondAttribute="trailing" id="e70-va-7aN"/>
-                            <constraint firstItem="M9L-OM-5Nl" firstAttribute="trailing" secondItem="sie-sc-Avl" secondAttribute="trailing" id="g1M-P7-NCt"/>
-                            <constraint firstItem="MQ3-ZP-CPr" firstAttribute="trailing" secondItem="sie-sc-Avl" secondAttribute="trailing" id="j7K-Nb-1qD"/>
-                            <constraint firstAttribute="trailing" secondItem="MQ3-ZP-CPr" secondAttribute="trailing" id="msk-TJ-HLd"/>
-                            <constraint firstItem="sie-sc-Avl" firstAttribute="top" secondItem="M9L-OM-5Nl" secondAttribute="bottom" constant="8" symbolic="YES" id="pkS-n5-At2"/>
-                            <constraint firstItem="vNQ-0h-sRc" firstAttribute="trailing" secondItem="M9L-OM-5Nl" secondAttribute="trailing" id="ppU-KE-851"/>
-                            <constraint firstItem="mgp-FB-EpD" firstAttribute="trailing" secondItem="Wlb-Vp-cHP" secondAttribute="trailing" id="tyx-Tn-Soo"/>
-                            <constraint firstItem="Wlb-Vp-cHP" firstAttribute="top" secondItem="mgp-FB-EpD" secondAttribute="bottom" constant="8" symbolic="YES" id="wgV-j6-hMT"/>
-                            <constraint firstItem="vNQ-0h-sRc" firstAttribute="top" secondItem="Wlb-Vp-cHP" secondAttribute="bottom" constant="8" symbolic="YES" id="zhS-SL-P3B"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rC8-ZI-37j" secondAttribute="bottom" id="2Xr-j6-mnq"/>
+                            <constraint firstItem="rC8-ZI-37j" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="GgL-8h-1jf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rC8-ZI-37j" secondAttribute="trailing" id="ICo-qh-jDi"/>
+                            <constraint firstItem="rC8-ZI-37j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LCy-pI-mYl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
