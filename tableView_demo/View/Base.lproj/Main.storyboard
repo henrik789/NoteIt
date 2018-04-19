@@ -104,7 +104,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B95-UU-hk9">
-                                        <rect key="frame" x="0.0" y="22" width="375" height="623"/>
+                                        <rect key="frame" x="0.0" y="47" width="375" height="620"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="j37-xN-Iy9" userLabel="Compose">
@@ -165,6 +165,7 @@
                                     <barButtonItem systemItem="compose" id="p5k-Du-lHz">
                                         <connections>
                                             <action selector="composeButton:" destination="n89-6Z-tqe" id="C64-Za-hLN"/>
+                                            <segue destination="xTG-Vs-SXo" kind="presentation" id="OIa-cl-Zry"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem systemItem="edit" id="XAc-AX-zvy">
@@ -198,20 +199,50 @@
             </objects>
             <point key="canvasLocation" x="480.80000000000001" y="144.3778110944528"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="cpN-CG-SWE">
+        <!--New Note View Controller-->
+        <scene sceneID="Uyh-xp-wm6">
             <objects>
-                <viewController id="Nbi-hR-m7b" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KX5-UU-Foi">
+                <viewController id="xTG-Vs-SXo" customClass="NewNoteViewController" customModule="tableView_demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z6L-BT-Vzp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OAO-bz-XnP">
+                                <rect key="frame" x="16" y="61" width="343" height="195"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jcg-x6-FAE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <barButtonItem systemItem="cancel" id="val-Gf-n3K">
+                                        <connections>
+                                            <action selector="cancel:" destination="xTG-Vs-SXo" id="uEv-PI-LNn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gGZ-dP-fhX"/>
+                                    <barButtonItem systemItem="save" id="hYt-IG-Ye9">
+                                        <connections>
+                                            <action selector="save:" destination="xTG-Vs-SXo" id="59O-ix-sDA"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="NNn-vi-cFc"/>
+                        <viewLayoutGuide key="safeArea" id="fWT-GJ-5YV"/>
                     </view>
+                    <connections>
+                        <outlet property="noteEntryContents" destination="OAO-bz-XnP" id="7ca-q0-TWq"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="51a-hE-zre" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l0Z-Ht-xb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1222" y="145"/>
+            <point key="canvasLocation" x="1197.5999999999999" y="144.3778110944528"/>
         </scene>
     </scenes>
     <resources>

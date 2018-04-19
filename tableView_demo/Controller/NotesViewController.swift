@@ -15,11 +15,9 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var noteTextField: UITextField!
     let notebook = Notebook()
     @IBOutlet weak var noteTableView: UITableView!
+
     
-    
-    let noteContent = ["Första inlägget", "Suspendisse rutrum est mollis, sollicitudin nunc ac, blandit neque. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "Tredje inlägget"]
-    
-    
+    let noteMessage: String = ""
     let notesCell = "notesCell"
     var ref: DatabaseReference!
     
@@ -30,7 +28,7 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
         //        for index in 0..<noteContent.count {
         //            notebook.addEntry(entry: NoteEntry(date: Date(), contents: noteContent[index]))
         //        }
-        writeToFirebase()
+      //  writeToFirebase()
         retrieveMessages()
         
         ref = Database.database().reference()
@@ -44,7 +42,7 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
     func writeToFirebase(){
         
         let notesDB = Database.database().reference().child("Messages")
-        let note = NoteEntry(date: Date(), contents: noteTextField.text!)
+        let note = NoteEntry(date: Date(), contents: noteMessage)
         notesDB.childByAutoId().setValue(note.toAnyObject()){
             (error, reference) in
             if error != nil{
@@ -84,12 +82,32 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func editButton(_ sender: Any) {
     }
     
-    @IBAction func composeButton(_ sender: Any) {
-        self.noteTextField.isEnabled = true
-        let newNote = NoteEntry(date: Date(), contents: "Hej")
-        notebook.addEntry(entry: newNote)
-        noteTableView.reloadData()
-    }
+//    @IBAction func composeButton(_ sender: Any) {
+//        let alert = UIAlertController(title: "Titel här", message: "meddelande", preferredStyle: .alert)
+//        alert.addTextField { (textField) in
+//            textField.placeholder = "My placeholder"
+//        }
+//        let actionOne = UIAlertAction(title: "Save", style: .default, handler: { (action) in
+//            self.noteMessage = (alert.textFields?.first?.text)!
+//            print(self.noteMessage)
+//        })
+//        let actionTwo = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+//            print("cancel")
+//        })
+//        alert.addAction(actionOne)
+//        alert.addAction(actionTwo)
+//        let newNote = NoteEntry(date: Date(), contents: noteMessage)
+//
+//        notebook.addEntry(entry: newNote)
+//        noteTableView.reloadData()
+//        writeToFirebase()
+//        print("knapp stängd")
+//        present(alert, animated: true, completion: nil)
+//
+//
+////        self.noteTextField.isEnabled = true
+//
+//    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
