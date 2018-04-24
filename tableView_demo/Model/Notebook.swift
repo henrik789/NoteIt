@@ -23,6 +23,10 @@ class Notebook{
         entries.insert(entry, at: 0)
     }
     
+    func removeEntry(row : Int){
+        entries.remove(at: row)
+    }
+    
     func entry(index: Int) -> NoteEntry? {
         if index >= 0 && index < entries.count {
             return entries[index]

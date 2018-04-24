@@ -1,7 +1,6 @@
 //
 //  ViewController.swift
 //  Note it!
-//  Credits    https://www.freepik.com/free-vector/abstract-design-background_1366169.htm"
 //  Created by Henrik on 2018-03-26.
 //  Copyright © 2018 Henrik. All rights reserved.
 //
@@ -12,23 +11,16 @@ import Firebase
 class NotesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
-    @IBOutlet weak var noteTextField: UITextField!
     let notebook = Notebook()
     @IBOutlet weak var noteTableView: UITableView!
-
     
-    let noteMessage: String = ""
+    var noteMessage: String = ""
     let notesCell = "notesCell"
     var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.noteTextField.isEnabled = false
         
-        //        for index in 0..<noteContent.count {
-        //            notebook.addEntry(entry: NoteEntry(date: Date(), contents: noteContent[index]))
-        //        }
-      //  writeToFirebase()
         retrieveMessages()
         
         ref = Database.database().reference()
@@ -39,21 +31,7 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     
-    func writeToFirebase(){
-        
-        let notesDB = Database.database().reference().child("Messages")
-        let note = NoteEntry(date: Date(), contents: noteMessage)
-        notesDB.childByAutoId().setValue(note.toAnyObject()){
-            (error, reference) in
-            if error != nil{
-                print(error!)
-            }else{
-                print("note sent succesfully")
-            }
-        }
-    }
-    
-    //TODO: Create the retrieveMessages method here:
+
     
     func retrieveMessages() {
         let notesDB = Database.database().reference().child("Messages")
@@ -64,53 +42,15 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
             let entry = NoteEntry.init(snapshot: snapshot)
             self.notebook.addEntry(entry: entry)
             self.noteTableView.reloadData()
-            
-            print("ny snapshot: \(entry)")
-            //let snapshotValue = snapshot.value as! Dictionary<String, String>
-            //            let text = snapshotValue["contents"]!
-            //            let date = snapshotValue["date"]!
             print("tar emot note från firebase")
-            //            NoteEntry.init(snapshot: snapshotValue)
             
         })
     }
     
     
-    @IBAction func trashButton(_ sender: Any) {
-    }
-    
-    @IBAction func editButton(_ sender: Any) {
-    }
-    
-//    @IBAction func composeButton(_ sender: Any) {
-//        let alert = UIAlertController(title: "Titel här", message: "meddelande", preferredStyle: .alert)
-//        alert.addTextField { (textField) in
-//            textField.placeholder = "My placeholder"
-//        }
-//        let actionOne = UIAlertAction(title: "Save", style: .default, handler: { (action) in
-//            self.noteMessage = (alert.textFields?.first?.text)!
-//            print(self.noteMessage)
-//        })
-//        let actionTwo = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
-//            print("cancel")
-//        })
-//        alert.addAction(actionOne)
-//        alert.addAction(actionTwo)
-//        let newNote = NoteEntry(date: Date(), contents: noteMessage)
-//
-//        notebook.addEntry(entry: newNote)
-//        noteTableView.reloadData()
-//        writeToFirebase()
-//        print("knapp stängd")
-//        present(alert, animated: true, completion: nil)
-//
-//
-////        self.noteTextField.isEnabled = true
-//
-//    }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(notebook.count)
         return notebook.count
     }
     
@@ -123,14 +63,10 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
         {
             dateLabel.text = notebook.entry(index: indexPath.row)?.description
         }
+        noteMessage = (cell?.textLabel?.text)!
+        print(noteMessage)
         return cell!
     }
-    
-    
-    override var prefersStatusBarHidden: Bool{
-        return true
-    }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         noteTableView.cellForRow(at: indexPath)?.textLabel?.numberOfLines = 0
@@ -144,10 +80,82 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
         print(indexPath)
     }
     
+    func tableView(_ tableView: UITableView,
+                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let closeAction = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            print("OK, marked as Closed")
+            
+            let entry =  self.notebook.entry(index: indexPath.row)
+            print("delete: \(String(describing: entry?.id))")
+            self.ref.child("Messages").child((entry?.id)!).removeValue()
+            self.notebook.removeEntry(row: indexPath.row)
+            self.noteTableView.reloadData()
+            
+            success(true)
+        })
+        closeAction.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [closeAction])
+        
+    }
     
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let modifyAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            print("Update action ...")
+            self.performSegue(withIdentifier: "newNoteSegue", sender: self.notebook.entry(index: indexPath.row) )
+            success(true)
+        })
+        
+        modifyAction.backgroundColor = .green
+        
+        return UISwipeActionsConfiguration(actions: [modifyAction])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //var destinationEditController : NewNoteViewController = segue.destination as! NewNoteViewController
+        //print(destinationEditController.noteEntryContents)
+       //destinationEditController.noteEntryContents.text? = noteMessage
+        if let s = sender as? NoteEntry? {
+            let destinationEditController : NewNoteViewController = segue.destination as! NewNoteViewController
+            destinationEditController.noteId = (s?.id)!
+            print(destinationEditController.noteId)
+        }
+        
+        
+    }
+    
+//    func edit (){
+//
+//
+//        performSegue(withIdentifier: "newNoteSegue", sender: self )
+//    }
+    
+    override var prefersStatusBarHidden: Bool{
+        return true
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
 }
+
+
+//    func writeToFirebase(){
+//
+//        let notesDB = Database.database().reference().child("Messages")
+//        let note = NoteEntry(date: Date(), contents: noteMessage)
+//        notesDB.childByAutoId().setValue(note.toAnyObject()){
+//            (error, reference) in
+//            if error != nil{
+//                print(error!)
+//            }else{
+//                print("note sent succesfully")
+//            }
+//        }
+//    }
+
+//TODO: Create the retrieveMessages method here:
 

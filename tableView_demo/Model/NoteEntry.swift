@@ -14,6 +14,7 @@ class NoteEntry: CustomStringConvertible{
     let date: Date
     let contents: String
     let dateFormatter : DateFormatter
+    let id : String
     
     var description: String {
         return dateFormatter.string(from: date)
@@ -24,10 +25,12 @@ class NoteEntry: CustomStringConvertible{
         self.contents = contents
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        id = ""
     }
     
     
     init(snapshot: DataSnapshot) {
+        self.id = snapshot.key
         let snapshotValue = snapshot.value as! [String: Any]
         contents = snapshotValue["contents"]! as! String
         print(snapshotValue["date"]! as! String)

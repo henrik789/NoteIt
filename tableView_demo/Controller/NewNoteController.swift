@@ -12,19 +12,30 @@ import Firebase
 class NewNoteViewController: UIViewController {
     
     @IBOutlet weak var noteEntryContents: UITextView!
-    
-    var note: Notebook?
-    
+    let notebook = Notebook()
+    var noteId :String?
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        if let id = noteId {
+            let noteRef = Database.database().reference().child("Messages").child(id)
+            noteRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as! [String : String]
+                let contents = value["contents"]
+                
+                self.noteEntryContents.text = contents
+                })
+            print("note edited")
+        }
     }
     
+    
+    
     @IBAction func save(_ sender: UIBarButtonItem) {
-        
+        if noteId == nil {
         let entry = NoteEntry(date: Date(), contents: noteEntryContents.text)
-        note?.addEntry(entry: entry)
         
         let notesDB = Database.database().reference().child("Messages")
         notesDB.childByAutoId().setValue(entry.toAnyObject()){
@@ -36,28 +47,16 @@ class NewNoteViewController: UIViewController {
             }
         }
         
-        print("knapp stängd")
         dismiss(animated: true, completion: nil)
-    }
+        } else {
 
+        }
+    }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
-    
-    //    @IBAction func save(_ sender: Any) {
-    //
-    //        let newNote = NoteEntry(date: Date(), contents: noteEntryContents.text )
-    ////        Notebook.addEntry(entry: newNote)
-    ////        NotesViewController.writeToFirebase()
-    //        print("knapp stängd")
-    //        dismiss(animated: true, completion: nil)
-    //    }
-    //
-    //    @IBAction func cancel(_ sender: Any) {
-    //        dismiss(animated: true, completion: nil)
-    //    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
