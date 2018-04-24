@@ -35,21 +35,25 @@ class NewNoteViewController: UIViewController {
     
     @IBAction func save(_ sender: UIBarButtonItem) {
         if noteId == nil {
-        let entry = NoteEntry(date: Date(), contents: noteEntryContents.text)
-        
-        let notesDB = Database.database().reference().child("Messages")
-        notesDB.childByAutoId().setValue(entry.toAnyObject()){
-            (error, reference) in
-            if error != nil{
-                print(error!)
-            }else{
-                print("note sent succesfully")
+            let entry = NoteEntry(date: Date(), contents: noteEntryContents.text)
+            
+            let notesDB = Database.database().reference().child("Messages")
+            notesDB.childByAutoId().setValue(entry.toAnyObject()){
+                (error, reference) in
+                if error != nil{
+                    print(error!)
+                }else{
+                    print("note sent succesfully")
+                }
             }
-        }
-        
-        dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
         } else {
-
+            
+            let noteRef = Database.database().reference().child("Messages").child(noteId!)
+            noteRef.child("contents").setValue(noteEntryContents.text)
+            
+            
+            dismiss(animated: true, completion: nil)
         }
     }
     

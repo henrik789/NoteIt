@@ -35,5 +35,9 @@ class Notebook{
         }
     }
     
+    func clear() {
+        entries = []
+    }
+    
     
 }

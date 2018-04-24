@@ -36,14 +36,17 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
     func retrieveMessages() {
         let notesDB = Database.database().reference().child("Messages")
         
-        notesDB.observe(.childAdded, with: {
+        
+        notesDB.observe(.value, with: {
             (snapshot) in
+            self.notebook.clear()
             
-            let entry = NoteEntry.init(snapshot: snapshot)
-            self.notebook.addEntry(entry: entry)
+            for snap in snapshot.children {
+                let entry = NoteEntry.init(snapshot: snap as! DataSnapshot)
+                self.notebook.addEntry(entry: entry)
+            }
+            
             self.noteTableView.reloadData()
-            print("tar emot note från firebase")
-            
         })
     }
     
@@ -58,26 +61,28 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = noteTableView.dequeueReusableCell(withIdentifier: "notesCell")
         _ = notebook.entry(index: indexPath.row)
         cell?.textLabel?.text = notebook.entry(index: indexPath.row)?.contents
-        print(notebook.entry(index: indexPath.row)?.contents as Any)
+//        print(notebook.entry(index: indexPath.row)?.contents as Any)
         if let dateLabel = cell?.detailTextLabel
         {
             dateLabel.text = notebook.entry(index: indexPath.row)?.description
         }
         noteMessage = (cell?.textLabel?.text)!
-        print(noteMessage)
+//        print(noteMessage)
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
         noteTableView.cellForRow(at: indexPath)?.textLabel?.numberOfLines = 0
         noteTableView.reloadData()
-        print(indexPath)
+        
     }
-    
+
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        print("deselecting........................")
         noteTableView.deselectRow(at:indexPath, animated: true)
         noteTableView.reloadData()
-        print(indexPath)
     }
     
     func tableView(_ tableView: UITableView,
