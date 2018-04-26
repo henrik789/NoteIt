@@ -60,7 +60,9 @@ class NewNoteViewController: UIViewController {
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    
+    override var prefersStatusBarHidden: Bool{
+        return true
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

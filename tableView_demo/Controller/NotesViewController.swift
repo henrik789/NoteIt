@@ -13,7 +13,7 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     let notebook = Notebook()
     @IBOutlet weak var noteTableView: UITableView!
-    
+    var cellRow: Int = 0
     var noteMessage: String = ""
     let notesCell = "notesCell"
     var ref: DatabaseReference!
@@ -22,6 +22,7 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         
         retrieveMessages()
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         ref = Database.database().reference()
         
@@ -31,7 +32,7 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     
-
+    
     
     func retrieveMessages() {
         let notesDB = Database.database().reference().child("Messages")
@@ -60,30 +61,36 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = noteTableView.dequeueReusableCell(withIdentifier: "notesCell")
         _ = notebook.entry(index: indexPath.row)
+        
         cell?.textLabel?.text = notebook.entry(index: indexPath.row)?.contents
-//        print(notebook.entry(index: indexPath.row)?.contents as Any)
         if let dateLabel = cell?.detailTextLabel
         {
             dateLabel.text = notebook.entry(index: indexPath.row)?.description
         }
         noteMessage = (cell?.textLabel?.text)!
-//        print(noteMessage)
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-        noteTableView.cellForRow(at: indexPath)?.textLabel?.numberOfLines = 0
-        noteTableView.reloadData()
+        cellRow = (noteTableView.cellForRow(at: indexPath)?.textLabel?.numberOfLines)!
+        if cellRow == 0{
+            noteTableView.cellForRow(at: indexPath)?.textLabel?.numberOfLines = 1
+            print(cellRow)
+            noteTableView.reloadData()
+        }else if cellRow == 1{
+            noteTableView.cellForRow(at: indexPath)?.textLabel?.numberOfLines = 0
+            print(cellRow)
+            noteTableView.reloadData()
+        }
         
     }
-
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        print("deselecting........................")
-        noteTableView.deselectRow(at:indexPath, animated: true)
-        noteTableView.reloadData()
-    }
+    
+    //    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    //        print("deselecting................")
+    //        noteTableView.cellForRow(at: indexPath)?.textLabel?.numberOfLines = 1
+    //        noteTableView.reloadData()
+    //    }
+    
     
     func tableView(_ tableView: UITableView,
                    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
@@ -119,10 +126,22 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
         return UISwipeActionsConfiguration(actions: [modifyAction])
     }
     
+    
+    @IBAction func logoutAction(_ sender: Any) {
+            do {
+                try Auth.auth().signOut()
+                print("logout")
+                performSegue(withIdentifier: "register", sender: self)
+//                navigationController?.popToRootViewController(animated: true)
+            }
+            catch {
+                print("error: there was a problem logging out")
+            }
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //var destinationEditController : NewNoteViewController = segue.destination as! NewNoteViewController
-        //print(destinationEditController.noteEntryContents)
-       //destinationEditController.noteEntryContents.text? = noteMessage
+        
         if let s = sender as? NoteEntry? {
             let destinationEditController : NewNoteViewController = segue.destination as! NewNoteViewController
             destinationEditController.noteId = (s?.id)!
@@ -132,11 +151,6 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
-//    func edit (){
-//
-//
-//        performSegue(withIdentifier: "newNoteSegue", sender: self )
-//    }
     
     override var prefersStatusBarHidden: Bool{
         return true
@@ -148,19 +162,5 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
 }
 
 
-//    func writeToFirebase(){
-//
-//        let notesDB = Database.database().reference().child("Messages")
-//        let note = NoteEntry(date: Date(), contents: noteMessage)
-//        notesDB.childByAutoId().setValue(note.toAnyObject()){
-//            (error, reference) in
-//            if error != nil{
-//                print(error!)
-//            }else{
-//                print("note sent succesfully")
-//            }
-//        }
-//    }
 
-//TODO: Create the retrieveMessages method here:
 

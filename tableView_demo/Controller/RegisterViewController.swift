@@ -22,10 +22,10 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         let email = UserDefaults.standard.string(forKey: "email")
         let password =  UserDefaults.standard.string(forKey: "password")
-       // if saveDefaultSwitch.isOn == true{
+
             
         print("hej!: \(email, password)")
-        //}
+
         
         if email != "" && password != "" && email != nil  && password != nil {
         // logInPressed med email och password
