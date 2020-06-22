@@ -1,6 +1,6 @@
 NoteIt
 
-Anteckningsapp för iOs med Firebase lagring.
+Anteckningsapp för iOS med Firebase lagring.
 
 Användaren ska kunna registrera konto och sedan logga in för att skapa en anteckning.
 
